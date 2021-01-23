@@ -13,12 +13,15 @@ with open('LICENSE') as f:
     license = f.read()
 
 
-def read_requirements():
-    """Parse requirements from requirements.txt."""
-    reqs_path = os.path.join('.', 'requirements.txt')
-    with open(reqs_path, 'r') as f:
-        requirements = [line.rstrip() for line in f]
-    return requirements
+def take_package_name(name):
+    if name.startswith("-e"):
+        return name[name.find("=")+1:name.rfind("-")]
+    else:
+        return name.strip()
+
+def load_requires_from_file(filepath):
+    with open(filepath) as fp:
+        return [take_package_name(pkg_name) for pkg_name in fp.readlines()]
 
 
 setup(
@@ -29,7 +32,7 @@ setup(
     author='lazmond3',
     author_email='moikilo00@gmail.com',
     url='https://github.com/lazmond3/pylib-instagram-type.git',
-    install_requires=read_requirements(),
+    install_requires=["lazmond3-pylib-debug"],
     license=license,
     packages=find_packages(exclude=('tests', 'docs')),
     test_suite='tests'
