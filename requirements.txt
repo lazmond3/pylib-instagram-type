@@ -1,0 +1,1 @@
+-e git+ssh://git@github.com/lazmond3/pylib-hello-world.git@master#egg=lazmond3-pylib-hello-world # private package
