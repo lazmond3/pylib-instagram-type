@@ -25,7 +25,7 @@ def load_requires_from_file(filepath):
 
 
 setup(
-    name='lazmond3-instagram-type',
+    name='lazmond3-pylib-instagram-type',
     version='1.0.0',
     description='parse instagram api __a response',
     long_description=readme,
