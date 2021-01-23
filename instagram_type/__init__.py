@@ -1,1 +1,1 @@
-from .instagram_data import InstagramData, convert_to_instagram_data, instagran_parse_json_to_obj
+from .instagram_type import InstagramData, instagran_parse_json_to_obj

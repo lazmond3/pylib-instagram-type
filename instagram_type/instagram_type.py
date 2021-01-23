@@ -34,7 +34,7 @@ class InstagramData:
         self.username = username
         self.full_name = full_name
     
-def convert_to_instagram_data(oj):
+def convert_to_instagram_type(oj):
     media = oj.graphql.shortcode_media.display_url
     caption = oj.graphql.shortcode_media.edge_media_to_caption.edges[0].node.text
     is_video = oj.graphql.shortcode_media.is_video
@@ -53,4 +53,4 @@ def convert_to_instagram_data(oj):
 def instagran_parse_json_to_obj(str):
     dic_ = json.loads(str)
     oj = Dict2Obj(dic_)
-    return convert_to_instagram_data(oj)
+    return convert_to_instagram_type(oj)
