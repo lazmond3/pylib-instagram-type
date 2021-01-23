@@ -2,6 +2,9 @@ from dict2obj import Dict2Obj
 import json
 
 class InstagramData:
+    """[summary]
+    self.media: メディア
+    """
     def __str__(self):
         n_caption = " ".join(self.caption[:100].split("\n"))
         return(f"""
@@ -27,6 +30,14 @@ class InstagramData:
     username,
     full_name
     ):
+        """init
+        media: 写真投稿に対する メイン画像 url
+        is_video: ビデオかどうか
+        caption: キャプション(投稿時のメッセージ)
+        self.profile_url = profile_url # プロフィール画像のurl
+        self.username = username # ユーザネーム(アルファベット)
+        self.full_name = full_name # 表示名
+        """
         self.media = media       # 写真投稿に対する メイン画像 url
         self.is_video = is_video # ビデオかどうか
         self.caption = caption # キャプション(投稿時のメッセージ)
@@ -51,6 +62,9 @@ def convert_to_instagram_type(oj):
     )
 
 def instagran_parse_json_to_obj(str):
+    """
+    __a=1 の json レスポンスを InstagramData に変換する。
+    """
     dic_ = json.loads(str)
     oj = Dict2Obj(dic_)
     return convert_to_instagram_type(oj)
