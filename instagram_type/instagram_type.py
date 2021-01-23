@@ -27,12 +27,12 @@ class InstagramData:
     username,
     full_name
     ):
-        self.media = media
-        self.is_video = is_video
-        self.caption = caption
-        self.profile_url = profile_url
-        self.username = username
-        self.full_name = full_name
+        self.media = media       # 写真投稿に対する メイン画像 url
+        self.is_video = is_video # ビデオかどうか
+        self.caption = caption # キャプション(投稿時のメッセージ)
+        self.profile_url = profile_url # プロフィール画像のurl
+        self.username = username # ユーザネーム(アルファベット)
+        self.full_name = full_name # 表示名
     
 def convert_to_instagram_type(oj):
     media = oj.graphql.shortcode_media.display_url
