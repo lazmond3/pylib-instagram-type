@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import use_hello
+import instagram_type
 import sys
 import os
 sys.path.insert(0, os.path.abspath(
