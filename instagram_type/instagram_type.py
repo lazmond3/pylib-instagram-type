@@ -3,7 +3,15 @@ import json
 
 class InstagramData:
     """[summary]
-    self.media: メディア
+
+    Attributes
+    -----------
+    media: :class:`str`
+        The url for the post's media.
+    is_video: :class:`boolean`
+        Whether this includes a video post.
+    caption: :class:`str`
+        The description by the author.
     """
     def __str__(self):
         n_caption = " ".join(self.caption[:100].split("\n"))
