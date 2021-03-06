@@ -55,7 +55,10 @@ class InstagramData:
     
 def convert_to_instagram_type(oj):
     media = oj.graphql.shortcode_media.display_url
-    caption = oj.graphql.shortcode_media.edge_media_to_caption.edges[0].node.text
+    if len(oj.graphql.shortcode_media.edge_media_to_caption.edges) == 0:
+        caption = ""
+    else:
+        caption = oj.graphql.shortcode_media.edge_media_to_caption.edges[0].node.text
     is_video = oj.graphql.shortcode_media.is_video
     profile_url = oj.graphql.shortcode_media.owner.profile_pic_url
     username = oj.graphql.shortcode_media.owner.username
