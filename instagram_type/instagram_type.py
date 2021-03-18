@@ -1,4 +1,5 @@
 from dict2obj import Dict2Obj
+from debug import DEBUG
 import json
 
 class InstagramData:
@@ -55,6 +56,8 @@ class InstagramData:
 
 def convert_long_caption(caption: str) -> str:
     lst = caption.split("\n")
+    if DEBUG:
+        print("lst: ", lst)
     lines = len(lst)
     if lines > 10:
         return "\n".join(lst)
