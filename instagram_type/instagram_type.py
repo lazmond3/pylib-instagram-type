@@ -58,7 +58,7 @@ def convert_long_caption(caption: str) -> str:
     lines = len(lst)
     if lines > 10:
         return "\n".join(lst)
-    else return caption
+    else: return caption
 
 def convert_to_instagram_type(oj):
     media = oj.graphql.shortcode_media.display_url
