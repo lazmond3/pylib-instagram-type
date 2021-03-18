@@ -52,13 +52,22 @@ class InstagramData:
         self.profile_url = profile_url # プロフィール画像のurl
         self.username = username # ユーザネーム(アルファベット)
         self.full_name = full_name # 表示名
-    
+
+def convert_long_caption(caption: str) -> str:
+    lst = caption.split("\n")
+    lines = len(lst)
+    if lines > 10:
+        return "\n".join(lst)
+    else return caption
+
 def convert_to_instagram_type(oj):
     media = oj.graphql.shortcode_media.display_url
     if len(oj.graphql.shortcode_media.edge_media_to_caption.edges) == 0:
         caption = ""
     else:
         caption = oj.graphql.shortcode_media.edge_media_to_caption.edges[0].node.text
+
+    caption = convert_long_caption(caption)
     is_video = oj.graphql.shortcode_media.is_video
     profile_url = oj.graphql.shortcode_media.owner.profile_pic_url
     username = oj.graphql.shortcode_media.owner.username
