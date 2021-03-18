@@ -60,10 +60,10 @@ def convert_long_caption(caption: str) -> str:
         print("lst: ", lst)
     lines = len(lst)
     if lines > 10:
-        return "\n".join(lst)
+        return "\n".join(lst[:10])
     else: return caption
 
-def convert_to_instagram_type(oj):
+def convert_to_instagram_type(oj) -> InstagramData:
     media = oj.graphql.shortcode_media.display_url
     if len(oj.graphql.shortcode_media.edge_media_to_caption.edges) == 0:
         caption = ""
