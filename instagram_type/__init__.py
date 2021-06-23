@@ -1,1 +1,1 @@
-from .instagram_type import InstagramData, instagran_parse_json_to_obj, get_multiple_medias
+from .instagram_type import InstagramData, instagran_parse_json_to_obj, get_multiple_medias, get_multiple_medias_from_str
