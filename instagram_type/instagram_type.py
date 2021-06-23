@@ -92,6 +92,14 @@ def get_multiple_medias(oj) -> List[str]:
         display_url = node.node.display_url
         ans.append(display_url)
     return ans
+def get_multiple_medias_from_str(str_arg) -> List[str]:
+    ans = []
+    dic_ = json.loads(str_arg)
+    oj = Dict2Obj(dic_)
+    for node in oj.graphql.shortcode_media.edge_sidecar_to_children.edges:
+        display_url = node.node.display_url
+        ans.append(display_url)
+    return ans
 
 def instagran_parse_json_to_obj(str):
     """
@@ -105,10 +113,14 @@ if __name__ == '__main__':
     import json
     with open("instagram_multi_img.json") as f:
         dic_ = json.load(f)
+    with open("instagram_multi_img.json") as f:
+        str_ = f.read()
     oj = Dict2Obj(dic_)
 
     
     
     for i in get_multiple_medias(oj):
+        print(i)
+    for i in get_multiple_medias_from_str(str_):
         print(i)
     # print(get_multiple_medias(oj))
