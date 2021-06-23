@@ -1,6 +1,7 @@
 from dict2obj import Dict2Obj
 from debug import DEBUG
 import json
+from typing import List
 
 class InstagramData:
     """[summary]
@@ -83,6 +84,12 @@ def convert_to_instagram_type(oj) -> InstagramData:
         username = username,
         full_name = full_name
     )
+def get_multiple_medias(oj) -> List[str]:
+    ans = []
+    for node in oj.graphql.shortcode_media.edge_sidecar_to_children.edges:
+        display_url = node.node.display_url
+        ans.append(display_url)
+    return ans
 
 def instagran_parse_json_to_obj(str):
     """
