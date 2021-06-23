@@ -3,6 +3,8 @@ from debug import DEBUG
 import json
 from typing import List
 
+import dict2obj
+
 class InstagramData:
     """[summary]
 
@@ -98,3 +100,15 @@ def instagran_parse_json_to_obj(str):
     dic_ = json.loads(str)
     oj = Dict2Obj(dic_)
     return convert_to_instagram_type(oj)
+
+if __name__ == '__main__':
+    import json
+    with open("instagram_multi_img.json") as f:
+        dic_ = json.load(f)
+    oj = Dict2Obj(dic_)
+
+    
+    
+    for i in get_multiple_medias(oj):
+        print(i)
+    # print(get_multiple_medias(oj))
