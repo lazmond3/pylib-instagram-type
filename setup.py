@@ -26,7 +26,7 @@ def load_requires_from_file(filepath):
 
 setup(
     name='lazmond3-pylib-instagram-type',
-    version='1.0.3',
+    version='1.0.4',
     description='update get_multiple_medias',
     long_description=readme,
     author='lazmond3',
