@@ -88,18 +88,18 @@ def convert_to_instagram_type(oj) -> InstagramData:
     )
 def get_multiple_medias(oj) -> List[str]:
     ans = []
-    for node in oj.graphql.shortcode_media.edge_sidecar_to_children.edges:
-        display_url = node.node.display_url
-        ans.append(display_url)
-    return ans
+    if "edge_sidecar_to_children" in oj.graphql.shortcode_media:
+        for node in oj.graphql.shortcode_media.edge_sidecar_to_children.edges:
+            display_url = node.node.display_url
+            ans.append(display_url)
+        return ans
+    else:
+        media = oj.graphql.shortcode_media.display_url
+        return [media]
 def get_multiple_medias_from_str(str_arg) -> List[str]:
-    ans = []
     dic_ = json.loads(str_arg)
     oj = Dict2Obj(dic_)
-    for node in oj.graphql.shortcode_media.edge_sidecar_to_children.edges:
-        display_url = node.node.display_url
-        ans.append(display_url)
-    return ans
+    return get_multiple_medias(oj)
 
 def instagran_parse_json_to_obj(str):
     """
