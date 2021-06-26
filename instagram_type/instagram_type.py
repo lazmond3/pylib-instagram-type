@@ -88,7 +88,8 @@ def convert_to_instagram_type(oj) -> InstagramData:
     )
 def get_multiple_medias(oj) -> List[str]:
     ans = []
-    if "edge_sidecar_to_children" in oj.graphql.shortcode_media:
+    # if "edge_sidecar_to_children" in oj.graphql.shortcode_media:
+    if hasattr(oj.graphql.shortcode_media, "edge_sidecar_to_children"):
         for node in oj.graphql.shortcode_media.edge_sidecar_to_children.edges:
             display_url = node.node.display_url
             ans.append(display_url)
