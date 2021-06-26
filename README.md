@@ -1,5 +1,9 @@
 # instagram_type Module Repository
 
+## このリポジトリは
+- https://github.com/lazmond3/pylib-discord-instagram-bot/pull/18
+こちらに吸収されたので deprecated
+
 ## usage
 
 sample for https://www.instagram.com/p/CO4WO8nnvc6/?__a=1
