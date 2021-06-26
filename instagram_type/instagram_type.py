@@ -112,7 +112,7 @@ def instagran_parse_json_to_obj(str):
 
 if __name__ == '__main__':
     import json
-    with open("instagram_multi_img.json") as f:
+    with open("yoshioka.json") as f:
         dic_ = json.load(f)
     with open("instagram_multi_img.json") as f:
         str_ = f.read()
@@ -122,6 +122,6 @@ if __name__ == '__main__':
     
     for i in get_multiple_medias(oj):
         print(i)
-    for i in get_multiple_medias_from_str(str_):
-        print(i)
+    # for i in get_multiple_medias_from_str(str_):
+    #     print(i)
     # print(get_multiple_medias(oj))
